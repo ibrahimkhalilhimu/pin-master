@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <button type="submit" id="submitBtn" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p id="kk" class="action-left">3 try left</p>
                             </div>
                     </div>
                 </div>
@@ -55,19 +55,21 @@
         </div>
     </div>
     <script>
+        // GENERATE BUTTON
         document.getElementById('generateBtn').addEventListener('click',function() {
             var generateInput = document.getElementById('generate-input')
            var minm = 1000;
            var maxm = 9999;
            generateInput.value = Math.floor(Math .random() * (maxm - minm + 1)) + minm;  
         })
+
+        // SUBMIT BUTTON
         document.getElementById('submitBtn').addEventListener('click',function () {
           if (document.getElementById('generate-input').value == ''){
             alert('please click the Generate pin ')
           }
           else if (document.getElementById('generate-input').value == numberDisplay.value){
             pinMatch.style.display = 'block'
-           pinNotMatch.style.display = 'block'
           }
          
           else{
@@ -75,6 +77,8 @@
               pinNotMatch.style.display = 'block'
           }
         })
+
+        // C button
         document.getElementById('clear').addEventListener('click',function () {
            pinMatch.style.display = 'none'
            pinNotMatch.style.display = 'none'
