@@ -39,7 +39,7 @@
                             <div class="calc-button-row">
                                 <div class="button" onclick="numberDisplay.value = numberDisplay.value.slice(0, -1)"><</div>
                                 <div class="button" onclick="numberDisplay.value +='0'">0</div>
-                                <div class="button" onclick="numberDisplay.value =''">C</div>
+                                <div id="clear" class="button" onclick="numberDisplay.value =''">C</div>
                             </div>
                             <div>
                                 <button type="submit" id="submitBtn" class="submit-btn">Submit</button>
@@ -62,15 +62,24 @@
            generateInput.value = Math.floor(Math .random() * (maxm - minm + 1)) + minm;  
         })
         document.getElementById('submitBtn').addEventListener('click',function () {
-          if (document.getElementById('generate-input').value == numberDisplay.value) {
-              var pinMatch = document.getElementById('pinMatch')
-              pinMatch.style.display='block'
+          if (document.getElementById('generate-input').value == ''){
+            alert('please click the Generate pin ')
           }
+          else if (document.getElementById('generate-input').value == numberDisplay.value){
+            pinMatch.style.display = 'block'
+           pinNotMatch.style.display = 'block'
+          }
+         
           else{
               var pinNotMatch = document.getElementById('pinNotMatch')
               pinNotMatch.style.display = 'block'
           }
         })
+        document.getElementById('clear').addEventListener('click',function () {
+           pinMatch.style.display = 'none'
+           pinNotMatch.style.display = 'none'
+        })
+
         
     </script>
 </body>
